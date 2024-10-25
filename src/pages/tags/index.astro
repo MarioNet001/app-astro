@@ -1,0 +1,19 @@
+---
+import { set } from "astro:schema";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../../components/BlogPost.astro";
+
+const allPost = await Astro.glob("../posts/*.md")
+const tags = [...new Set(allPost.map((post)=> post.frontmatter.tags).flat())];
+---
+
+<BaseLayout pageTitle = "Enrutamiento">
+    <h2>Rutas </h2>
+    <div>
+        <ul>
+        {tags.map((tag) => (
+          <BlogPost url={`/tags/${tag}`}  title = {tag}></BlogPost>
+        ))}
+        </ul>
+      </div>
+</BaseLayout>

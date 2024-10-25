@@ -1,21 +1,38 @@
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>About</title>
-	</head>
-	<body>
-		<h1>pagina About </h1>
-        <p>texto de introduccion </p>
-        <a href="/">pagina inicio</a>
-        <a href="/blog/">Blog</a>
-        <main>
-            <section>
-                <h2>Titulo de la seccion</h2>
-                <p>texto de la seccion</p>
-            </section>
-        </main>
-	</body>
-</html>
+---
+const title = 'About';
+import BaseLayout from "../layouts/BaseLayout.astro";
+const identity = {
+  firstName: "Mario Torres",
+  country: "Mexico",
+  occupation: "Desarrollador web",
+  hobbies: ["fotografia", "observación de aves", "peñarol"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Redacción de documentos"];
+const happy = true;
+const finished = false;
+const goal = 3;
+
+---
+    <BaseLayout pageTitle = {title}>
+        <section>
+            <h2>Titulo de la seccion {title}</h2>
+            <h4>cosas sobre mi </h4>
+            <ul>
+                <li>Me llamo: {identity.firstName}</li>
+                <li>vivo en: {identity.country}</li>
+                <li> trabajo en: {identity.occupation} </li>
+                { skills.length > 0 && (
+                    <li> Mis Habilidades son : {skills.map((skill) => {
+                        return <span class="skill">{skill+ "  "}</span>
+                    })}</li>
+                )
+                }
+            </ul>
+            {happy && <p>¡Estoy feliz de aprender Astro!</p>}
+{finished && <p>¡He terminado este tutorial!</p>}
+{goal === 3 ? <p>Mi objetivo es terminar en 3 días.</p> : <p>Mi objetivo no son 3 días.</p>}
+        </section>
+    </BaseLayout>
+
+
