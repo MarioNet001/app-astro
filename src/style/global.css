@@ -69,6 +69,31 @@ html {
     display: unset;
   }
   
+  html.white {
+    background-color: #ace1f2;
+    color: #434242;
+  }
+  
+  .white  a {
+    color: #434242;
+  }
+
+  .white .nav-links a:hover,
+  .white .nav-links a:focus {
+    background-color: #03a25a;
+  }
+
+  .white h1 {
+    color: #168236;
+  }
+
+  .white .hamburger .line {
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: #03a25a;
+  }
   @media screen and (min-width: 636px) {
     .nav-links {
       margin-left: 5em;

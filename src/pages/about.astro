@@ -1,5 +1,6 @@
 ---
 const title = 'About';
+import { transformer } from "astro:schema";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const identity = {
   firstName: "Mario Torres",
@@ -10,7 +11,7 @@ const identity = {
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Redacción de documentos"];
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 3;
 
 ---
